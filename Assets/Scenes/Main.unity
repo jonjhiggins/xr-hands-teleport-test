@@ -2552,8 +2552,9 @@ GameObject:
   - component: {fileID: 1132189277}
   - component: {fileID: 1132189276}
   - component: {fileID: 1132189275}
+  - component: {fileID: 1132189278}
   m_Layer: 0
-  m_Name: Ray Trigger Cube
+  m_Name: Jump Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2629,6 +2630,18 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1132189278}
+        m_TargetAssemblyTypeName: JumpGemTrackHands, Assembly-CSharp
+        m_MethodName: SetHandTrackingInactive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1498678685}
         m_TargetAssemblyTypeName: RayInteractorToggle, Assembly-CSharp
         m_MethodName: SetActive
@@ -2659,6 +2672,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1498678685}
         m_TargetAssemblyTypeName: RayInteractorToggle, Assembly-CSharp
         m_MethodName: SetInactive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1132189278}
+        m_TargetAssemblyTypeName: JumpGemTrackHands, Assembly-CSharp
+        m_MethodName: SetHandTrackingActive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2814,6 +2839,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1132189278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132189273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd615b54d2b8ec458e6faa624203826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handTransform: {fileID: 1315480385}
+  offset: {x: 0.1, y: 0, z: 0}
 --- !u!1 &1221476182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3321,11 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!4 &1315480385 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5876909491052011584, guid: b3ed8a0a703ebd34a9e44ed3d9f1fcf6, type: 3}
+  m_PrefabInstance: {fileID: 1391294252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1349541639
 GameObject:
   m_ObjectHideFlags: 0
