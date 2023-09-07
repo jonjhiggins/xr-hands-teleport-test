@@ -17,17 +17,24 @@ public class TeleportFloor : MonoBehaviour
     {
         if (teleportationArea.interactorsHovering.Count > 0)
         {
-            Transform interactorTransform = teleportationArea.interactorsHovering[0].transform;
-            Teleport(interactorTransform);
+            var xrRayInteractor = teleportationArea.interactorsHovering[0].transform.GetComponent<XRRayInteractor>();
+            bool rayhitExists = xrRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit);
+            if (rayhitExists)
+            {
+               
+            Teleport(raycastHit);
+            }
         }
     }
 
-    void Teleport(Transform interactorTransform)
+    void Teleport(RaycastHit raycastHit)
     {
+
+
         TeleportRequest teleportRequest = new TeleportRequest
         {
-            destinationPosition = interactorTransform.position,
-            destinationRotation = interactorTransform.rotation,
+            destinationPosition = raycastHit.point,
+            destinationRotation = transform.rotation,
         };
 
         teleportationArea.teleportationProvider.QueueTeleportRequest(teleportRequest);
